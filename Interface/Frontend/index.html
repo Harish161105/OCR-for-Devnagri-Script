@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DevaOCR – Devanagari Handwritten OCR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">DevaOCR</div>
+  <div class="nav-links">
+    <span onclick="goHome()">Home</span>
+    <span onclick="showDraw()">Draw</span>
+    <span onclick="showUpload()">Upload</span>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="home">
+  <span class="badge">✨ AI-Powered Recognition</span>
+
+  <h1>
+    Devanagari <br />
+    <span>Handwritten OCR</span>
+  </h1>
+
+  <p class="description">
+    Advanced AI-based recognition system for handwritten Devanagari
+    characters. Draw directly or upload images for instant predictions.
+  </p>
+
+  <div class="card-grid">
+    <div class="feature-card" onclick="showDraw()">
+      <h3>Draw a Character</h3>
+      <p>Use the interactive canvas to draw handwritten characters.</p>
+      <span>Get started →</span>
+    </div>
+
+    <div class="feature-card" onclick="showUpload()">
+      <h3>Upload an Image</h3>
+      <p>Upload an image of handwritten Devanagari text.</p>
+      <span>Get started →</span>
+    </div>
+  </div>
+</section>
+
+<!-- DRAW -->
+<section id="draw-area" class="panel hidden">
+  <h2>Draw a Character</h2>
+  <canvas id="canvas" width="240" height="240"></canvas>
+  <div class="buttons">
+    <button onclick="clearCanvas()">Clear</button>
+    <button onclick="captureCanvas()">Predict</button>
+  </div>
+</section>
+
+<!-- UPLOAD -->
+<section id="upload-area" class="panel hidden">
+  <h2>Upload an Image</h2>
+  <input type="file" id="fileInput" accept="image/*" onchange="previewImage()" />
+  <img id="preview" />
+  <button onclick="predictUpload()">Predict</button>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="result hidden">
+  <h2 id="predictedChar">–</h2>
+  <p id="confidence">Confidence: –</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
